@@ -1,0 +1,153 @@
+/* Styles for all screen sizes */
+* {
+    transition: .3s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-container {
+    margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.input-container input {
+  padding: 8px 11px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: 0.3s ease;
+  font-size: 20px;
+}
+
+.input-container button {
+  padding: 9px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.input-container button:hover {
+  opacity: 1;
+}
+.alert {
+  background-color: #f44336; /* Red */
+  color: white;
+  padding: 8px 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+  opacity: 0.9;
+  font-size: 25px;
+  cursor: default;
+  transition: 0.3s ease;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.7);
+}
+.alert:hover {
+  opacity: 1;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+}
+
+.img-container {
+  margin-top: 20px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+}
+
+.img-container img {
+  width: 90%;
+  height: 90%;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Styles for screens 400px or less */
+@media only screen and (max-width: 550px) {
+  .container {
+    margin-top: 10px;
+  }
+  .input-container {
+    margin-top: 20px;
+  }
+
+  .img-container {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .img-container img {
+    width: 100%;
+    height: auto;
+    margin: 20px;
+    border-radius: 10px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .input-container input {
+    margin-top: 25px;
+    padding: 7px 9px;
+    font-size: 16px;
+  }
+
+  .input-container button {
+    padding: 8px 10px;
+    font-size: 16px;
+  }
+  .alert {
+    margin-top: 25px;
+  }
+  .img-container img, .img-container{
+    width: 90%;
+    height: auto;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .input-container input {
+    margin-top: 25px;
+    padding: 7px 9px;
+    font-size: 16px;
+  }
+
+  .input-container button {
+    margin-top: 20px;
+    padding: 8px 10px;
+    font-size: 16px;
+  }
+  .alert{
+    margin-top: 25px;
+    font-size: 20px;
+  }
+  .img-container {
+    margin: 25px;
+  }
+}
