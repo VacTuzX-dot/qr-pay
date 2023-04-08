@@ -120,10 +120,6 @@ body {
     width: 55vw;
     height: 55vw;
   }
-  .img-container img {
-    width: auto;
-    height: auto;
-  }
 }
 
 @media screen and (max-width: 320px) {
@@ -145,10 +141,6 @@ body {
   .img-container {
     margin: 25px;
   }
-  .img-container img {
-    width: auto;
-    height: auto;
-  }
 }
 
 @media screen and (max-width: 767px) {
@@ -167,10 +159,6 @@ body {
   .img-container {
     width: 60vw;
     height: 60vw;
-  }
-  .img-container img {
-    width: auto;
-    height: auto;
   }
 }
 
@@ -195,9 +183,5 @@ body {
   .img-container {
     width: 550px;
     height: 550px;
-  }
-  .img-container img {
-    width: auto;
-    height: auto;
   }
 }
