@@ -10,11 +10,12 @@
   <body>
     <div class="container">
       <div class="input-container">
-        <input type="text" id="amount" placeholder="amount" />
+        <input type="text" id="amount" placeholder=" ฿." />
+        <input type="text" id="mobileNumber" placeholder=" Tel." />
         <button onclick="genQR()">Generate</button>
       </div>
       <div class="img-container">
-        <img id="imgqr" src="" />
+        <img id="imgqr" src="" loading="lazy"/>
       </div>
       <div id="alert-container"></div>
     </div>
@@ -27,10 +28,19 @@
     <script>
       function genQR() {
         const amount = parseFloat($("#amount").val());
+        const mobileNumber = $("#mobileNumber").val(); // เพิ่มการอ่านค่าเบอร์โทร
 
         // check if amount is empty
         if (!amount) {
-          $("#alert-container").html('<div class="alert">Please enter the amount.</div>');
+          $("#alert-container").html(
+            '<div class="alert">Please enter the amount.</div>'
+          );
+          return;
+        } else if (!mobileNumber) {
+          // เพิ่มการตรวจสอบค่าเบอร์โทรว่าไม่ให้เป็นค่าว่าง
+          $("#alert-container").html(
+            '<div class="alert">Please enter the mobile number.</div>'
+          );
           return;
         } else {
           $("#alert-container").empty();
@@ -41,6 +51,7 @@
           url: "http://localhost:3000/generateQR",
           data: {
             amount: amount,
+            mobileNumber: mobileNumber, // ส่งค่าเบอร์โทรไปยังเซิร์ฟเวอร์
           },
           success: function (response) {
             console.log("good", response);

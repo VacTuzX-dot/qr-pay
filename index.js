@@ -16,7 +16,11 @@ const server = app.listen(3000, () => {
 
 app.post("/generateQR", (req, res) => {
   const amount = parseFloat(_.get(req, ["body", "amount"]));
-  const mobileNumber = "0808352190";
+  const mobileNumber = _.get(req, ["body", "mobileNumber"]); // อ่านค่าเบอร์โทรจาก req.body
+  // เช็คว่า mobileNumber ไม่เป็นค่าว่างหรือไม่
+  if (!mobileNumber) {
+    return res.status(400).json({ error: "Mobile number is required." });
+  }
   const payload = generatePayload(mobileNumber, { amount });
   const option = {
     color: {
@@ -26,18 +30,9 @@ app.post("/generateQR", (req, res) => {
   };
   QRCode.toDataURL(payload, option, (err, url) => {
     if (err) {
-      console.log("generate fail");
-      return res.status(400).json({
-        RespCode: 400,
-        RespMessage: "bad : " + err,
-      });
-    } else {
-      return res.status(200).json({
-        RespCode: 200,
-        RespMessage: "good",
-        Result: url,
-      });
+      return res.status(500).json({ error: "Failed to generate QR code." });
     }
+    return res.status(200).json({ Result: url });
   });
 });
 
