@@ -87,10 +87,6 @@ body {
   border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
 }
-.img-container img {
-  width: auto;
-  height: auto;
-}
 
 /* Styles for screens 400px or less */
 @media screen and (max-width: 550px) {
